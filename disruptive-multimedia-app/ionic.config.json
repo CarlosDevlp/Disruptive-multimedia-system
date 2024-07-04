@@ -1,0 +1,7 @@
+{
+  "name": "disruptive-multimedia-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
