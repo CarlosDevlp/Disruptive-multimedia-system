@@ -21,6 +21,12 @@ $ npm install
 ```bash
 $ npm run start
 ```
+## -- NOTA -- Si restauras la BD del backup, puedes usar las siguientes cuentas:
+<ul>
+    <li>Para admin. username: test , password: admin</li>
+    <li>Para creador. username: carlosplusplus , password: test</li>
+</ul>
+
 <br/>
 
 <h2>Documentación</h2>
