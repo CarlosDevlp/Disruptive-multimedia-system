@@ -6,6 +6,6 @@ export interface Post{
     credits: string;
     user?: string;
     category?: string;
-    createdAt: Date;    
-    updatedAt: Date;
+    createdAt?: Date;    
+    updatedAt?: Date;
 }
