@@ -19,7 +19,7 @@ export abstract class AuthGuard  {
       const payload = await this.jwtService.verifyAsync(
         token,
         {
-          secret: '41d39961310cd8597ae7207177eb08b526e834dd84fa505bc9d2dc2ff0291c92'
+          secret: process.env.JWT_SECRET
         }
       );
       // 💡 We're assigning the payload to the request object here

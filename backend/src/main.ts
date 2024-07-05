@@ -12,6 +12,7 @@ async function bootstrap() {
     "preflightContinue": false,
     "optionsSuccessStatus": 204
   });
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 5000);
+  console.log('Starting at port '+process.env.PORT);
 }
 bootstrap();

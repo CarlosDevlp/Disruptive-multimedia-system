@@ -21,6 +21,7 @@ const LoginPage: React.FC = () => {
         }catch(error:any){
             console.log('error: ', error);
             presentAlert({
+                cssClass: 'cy-error-message',
                 header: 'Error',
                 message: error?.response?.data?.message || 'Server Error',
                 buttons: ['Ok']
@@ -49,6 +50,7 @@ const LoginPage: React.FC = () => {
             <IonList>
                 <IonItem>
                     <IonInput 
+                        cy-name="username"
                         label="Username"
                         labelPlacement="floating" 
                         fill="solid"
@@ -58,6 +60,7 @@ const LoginPage: React.FC = () => {
                 </IonItem>
                 <IonItem>
                     <IonInput 
+                        cy-name="password"
                         label="Password"
                         labelPlacement="floating" 
                         fill="solid"
@@ -69,11 +72,11 @@ const LoginPage: React.FC = () => {
                 <IonItem>
                     <p>*Nota: ingrese manualmente los datos en los campos</p>
                 </IonItem>
-                <IonItem  routerLink="/signup" routerDirection="none" lines="none" detail={false}>
-                  <IonLabel className='btn-url-label'>Crear nueva cuenta</IonLabel>
+                <IonItem  cy-name="btn-signup" routerLink="/signup" routerDirection="none" lines="none" detail={false}>
+                  <IonLabel cy-name="btn-signup-label" className='btn-url-label'>Crear nueva cuenta</IonLabel>
                 </IonItem>
                 <IonItem>
-                    <IonButton expand="block" type='submit'>LogIn</IonButton>
+                    <IonButton cy-name="btn-login" expand="block" type='submit'>LogIn</IonButton>
                 </IonItem>
             </IonList>
         </form>

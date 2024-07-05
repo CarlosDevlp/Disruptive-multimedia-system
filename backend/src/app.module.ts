@@ -6,30 +6,21 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { CategoryModule } from './modules/category/category.module';
 import { PostModule } from './modules/post/post.module';
 import { JwtModule } from '@nestjs/jwt';
+import { ConfigModule } from '@nestjs/config';
+
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     UserModule,
     CategoryModule,
     PostModule,
-    MongooseModule.forRoot('mongodb://localhost:27017/disruptive'),
+    MongooseModule.forRoot(process.env.MONGO_CONNECTION),
     JwtModule.register({
       global: true,
-      secret: '41d39961310cd8597ae7207177eb08b526e834dd84fa505bc9d2dc2ff0291c92',
+      secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '5d' },
     })
-    /*MulterModule.register({
-      dest:  join(__dirname, '..', 'public', 'uploads'),
-    }),
-    MulterModule.register({
-      storage: diskStorage({
-        destination: join(__dirname, '..', 'public', 'uploads'),
-        filename: (req, file, cb) => {
-          const filename = `${Date.now()}-${file.originalname}`;
-          cb(null, filename);
-        },
-      }),
-    }),*/
   ],
   controllers: [AppController],
   providers: [AppService],

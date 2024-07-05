@@ -22,6 +22,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from '../../shared/slices/user.slice';
 
 interface MenuItem {
+  name: string;
   url: string;
   iosIcon: string;
   mdIcon: string;
@@ -31,6 +32,7 @@ interface MenuItem {
 const createCategoryItem: MenuItem = {//only should appear for admins
   title: 'Crear Categoria',
   url: '/create-category',
+  name: 'create-category',
   iosIcon: addSharp,
   mdIcon: addSharp
 };
@@ -38,6 +40,7 @@ const createCategoryItem: MenuItem = {//only should appear for admins
 const createPostItem: MenuItem = {//only should appear for admin and creators
   title: 'Crear Post',
   url: '/create-post',
+  name: 'create-post',
   iosIcon: addSharp,
   mdIcon: addSharp
 }
@@ -45,6 +48,7 @@ const createPostItem: MenuItem = {//only should appear for admin and creators
 const logoutItem: MenuItem = {
   title: 'Log Out',
   url: '#logout',
+  name: 'log-out',
   iosIcon: exitSharp,
   mdIcon: exitSharp
 }
@@ -53,6 +57,7 @@ const commonMenu: MenuItem[] = [
   {
     title: 'Home',
     url: '/home',
+    name: 'home',
     iosIcon: homeSharp,
     mdIcon: homeSharp
   },
@@ -82,17 +87,11 @@ const Menu: React.FC = () => {
       category => ({
         title: 'Categoria '+category.name,
         url: '/categories/'+category._id,
+        name: 'category',
         iosIcon: bookmarkSharp,
         mdIcon: bookmarkSharp
       })
     ))
-
-    /*categories.forEach( category => menuCloned.splice(1,0, {
-      title: 'Categoria '+category.name,
-      url: '/categories/'+category._id,
-      iosIcon: bookmarkSharp,
-      mdIcon: bookmarkSharp
-    })); */
     
   };
 
@@ -126,8 +125,8 @@ const Menu: React.FC = () => {
     <IonMenu contentId="main" type="reveal">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>{user?.username + ' ('+user?.role_name+')' || 'Username'}</IonListHeader>
-          <IonNote>{user?.email || 'mail'}</IonNote>
+          <IonListHeader cy-name="sidenav-title">{user?.username + ' ('+user?.role_name+')' || 'Username'}</IonListHeader>
+          <IonNote cy-name="sidenav-subtitle">{user?.email || 'mail'}</IonNote>
           {[...commonMenu,
             ...categoryMenuItems,
             ...createContentMenuItems,
@@ -136,7 +135,7 @@ const Menu: React.FC = () => {
             if(item.url=='#logout'){
               return (
                 <IonMenuToggle key={index} autoHide={false}>
-                  <IonItem onClick={logOut} lines="none" detail={false}>
+                  <IonItem cy-name="btn-logout" onClick={logOut} lines="none" detail={false}>
                     <IonIcon aria-hidden="true" slot="start" ios={item.iosIcon} md={item.mdIcon} />
                     <IonLabel>{item.title}</IonLabel>
                   </IonItem>
@@ -146,7 +145,7 @@ const Menu: React.FC = () => {
             
             return (
               <IonMenuToggle key={index} autoHide={false}>
-                <IonItem className={location.pathname === item.url ? 'selected' : ''} routerLink={item.url} routerDirection="none" lines="none" detail={false}>
+                <IonItem cy-name={"menu-btn-"+item.name} className={location.pathname === item.url ? 'selected' : ''} routerLink={item.url} routerDirection="none" lines="none" detail={false}>
                   <IonIcon aria-hidden="true" slot="start" ios={item.iosIcon} md={item.mdIcon} />
                   <IonLabel>{item.title}</IonLabel>
                 </IonItem>

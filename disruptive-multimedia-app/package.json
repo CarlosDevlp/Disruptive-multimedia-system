@@ -49,6 +49,7 @@
     "@capacitor/cli": "6.1.0",
     "@typescript-eslint/eslint-plugin": "^5.59.2",
     "@typescript-eslint/parser": "^5.59.2",
+    "cypress": "^13.13.0",
     "eslint": "^8.35.0",
     "eslint-plugin-react": "^7.32.2"
   },
@@ -56,9 +57,13 @@
     "start:ionic": "ionic start",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
+    "test:old": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext .ts,.tsx src"
+    "lint": "eslint --ext .ts,.tsx src",
+    "cy:open": "cypress open",
+    "cy:test": "cypress run",
+    "test": "cypress run"
+
   },
   "browserslist": [
     "Chrome >=79",

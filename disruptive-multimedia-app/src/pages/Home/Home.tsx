@@ -26,6 +26,14 @@ const HomePage: React.FC = () => {
         listPosts();
     },[]);
 
+    const renderPosts= ()=>{
+      return posts?.map( post => 
+        ( <IonItem cy-name="post-card-container" key={post._id}>
+            <PostCard  post={post} ></PostCard>
+            </IonItem>)
+      )
+    }
+
   return (
     <IonPage>
       <IonHeader>
@@ -47,17 +55,14 @@ const HomePage: React.FC = () => {
         <IonInput fill="outline" 
                 placeholder="Buscar post..." 
                 debounce={500} 
+                cy-name="search-box"
                 onIonInput={(event)=>searchForPosts(event?.target?.value+'')}></IonInput>
 
 
         <IonList>
 
             {
-                posts && posts.map( post => 
-                    ( <IonItem key={post._id}>
-                        <PostCard  post={post} ></PostCard>
-                        </IonItem>)
-                )
+                (posts && posts.length>0 ? renderPosts(): (<IonItem cy-name="not-found-text"> <p>No se encontraron posts</p> </IonItem>))
             }
         
         </IonList>
