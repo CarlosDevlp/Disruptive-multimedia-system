@@ -1,0 +1,6 @@
+.file-input{
+    display: flex;
+}
+.file-input label{
+    margin-right: 10px;
+}

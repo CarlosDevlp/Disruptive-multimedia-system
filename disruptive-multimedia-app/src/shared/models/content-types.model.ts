@@ -1,0 +1,6 @@
+export enum CONTENT_TYPES{
+    //DOCUMENT= 'DOCUMENT',
+    YOUTUBE_VIDEO= 'YOUTUBE_VIDEO',
+    TEXT= 'TEXT',
+    IMAGE= 'IMAGE',
+}

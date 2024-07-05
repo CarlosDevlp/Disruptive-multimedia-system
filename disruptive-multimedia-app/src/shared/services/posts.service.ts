@@ -10,3 +10,8 @@ export const getPosts = async ():Promise<Post[]> => {
 export const findPosts = async (search: string):Promise<Post[]> => {
     return axios.get(ENDPOINTS.BASE_URL+'/posts', { params: {search} }).then( result => result.data);
 };
+
+
+export const getContentTypes = async ():Promise<string[]> => {
+    return axios.get(ENDPOINTS.BASE_URL+'/posts/content-types').then( result => result.data);
+};
