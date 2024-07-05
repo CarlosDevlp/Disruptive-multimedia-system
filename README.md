@@ -8,6 +8,20 @@
     <li>Otras herramientas: Postman</li>
 </ul>
 
+<h2>Instrucciones (para backend y frontend)</h2>
+
+## Installation
+
+```bash
+$ npm install
+```
+
+## Running the app
+
+```bash
+$ npm run start
+```
+<br/>
 
 <h2>Documentación</h2>
 <h4>Diagrama de clases o Entidad Relación</h4>
@@ -20,6 +34,9 @@
 <h4>Api Documentation</h4>
 La documentación total del proyecto se hizo a traves de la plataforma de Postman, la colección está ubicada en la carpeta <b>documentation</b>, pero hay una versión en línea donde se podra visualizar con mucha más claridad. 
 API DOC: puede ser visitado a través de la siguiente URL: [Api Docs](https://documenter.getpostman.com/view/30110498/2sA3dyiqv7)
+<h4>Video Demo</h4>
+[Video demostrando todo el flujo del aplicativo](https://drive.google.com/file/d/14nRCPgglDrXwZ9zauWmDv9QSoErjxXcZ/view?usp=sharing)
+
 
 <h2>Cosas que mejorar</h2>
 <ul>
