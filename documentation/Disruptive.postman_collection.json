@@ -30,9 +30,73 @@
 					"path": [
 						"users"
 					]
-				}
+				},
+				"description": "Permite realizar Sign Up o crear un nuevo usuario con un rol especifico"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "SIgnUp Ejemplo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"test\",\n    \"email\": \"test@gmail.com\",\n    \"password\": \"admin\",\n    \"role\": \"66850f901cdfbff7e14fd824\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "193"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c1-qcNVxayQENET+M9NlvWZffhZ32o\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jul 2024 11:00:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"username\": \"test\",\n    \"email\": \"test@gmail.com\",\n    \"password\": \"$2b$10$bED0en7dPd.Kq7ebALaKx.BNqxyelaxASI7pIkzps29YrUUMSMoeS\",\n    \"role\": \"66850f901cdfbff7e14fd824\",\n    \"_id\": \"66852f44aa1727bcc1c11045\",\n    \"__v\": 0\n}"
+				}
+			]
 		},
 		{
 			"name": "LogIn",
@@ -59,9 +123,78 @@
 						"users",
 						"login"
 					]
-				}
+				},
+				"description": "Permite logear al usuario (usando username y password) con la expectativa de tener un token de autenticacion."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Login Ejemplo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"test\",\n    \"password\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "412"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19c-qUWA05o+c91jOzV8mUg5nb5Mmdg\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Jul 2024 03:35:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": {\n        \"_id\": \"66852f44aa1727bcc1c11045\",\n        \"username\": \"test\",\n        \"email\": \"test@gmail.com\",\n        \"password\": \"$2b$10$bED0en7dPd.Kq7ebALaKx.BNqxyelaxASI7pIkzps29YrUUMSMoeS\",\n        \"role\": \"66850f901cdfbff7e14fd824\",\n        \"__v\": 0\n    },\n    \"role_name\": \"ADMIN\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MjAxNTA1MzUsImV4cCI6MTcyMDU4MjUzNX0.zT7JIxRt31XjRyEsDcgKQfmvM6xxUuDL11uji5Vp3cY\"\n}"
+				}
+			]
 		},
 		{
 			"name": "Users",
@@ -78,9 +211,64 @@
 					"path": [
 						"users"
 					]
-				}
+				},
+				"description": "Permite tener una lista con todos los usuarios y sus roles"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Listar usuarios ejemplo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "313"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"139-ANabUP+Ub0XMaVSKKyNsEP0YHFE\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jul 2024 21:57:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"66850e5e1cdfbff7e14fd822\",\n        \"username\": \"admin\",\n        \"email\": \"admin@gmail.com\",\n        \"role\": {\n            \"_id\": \"66850f901cdfbff7e14fd824\",\n            \"name\": \"ADMIN\",\n            \"label\": \"Admin\"\n        }\n    },\n    {\n        \"_id\": \"66852f44aa1727bcc1c11045\",\n        \"username\": \"test\",\n        \"email\": \"test@gmail.com\",\n        \"role\": {\n            \"_id\": \"66850f901cdfbff7e14fd824\",\n            \"name\": \"ADMIN\",\n            \"label\": \"Admin\"\n        },\n        \"__v\": 0\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Categories",
@@ -97,9 +285,75 @@
 					"path": [
 						"categories"
 					]
-				}
+				},
+				"description": "Permite obtener una lista de todas las categorias"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Listar categorias ejemplo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categories"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "505"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1f9-nS+N51XlqFP9t9NQl93ci2X3Icc\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Jul 2024 06:52:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"668587ab1cdfbff7e14fd839\",\n        \"name\": \"Matematicas\",\n        \"cover_image\": \"public/uploads/1720125743086.png\",\n        \"allows_images\": false,\n        \"allows_youtube_videos\": false,\n        \"allows_documents\": true\n    },\n    {\n        \"_id\": \"66858de8f33f3d067d94692a\",\n        \"name\": \"Comida\",\n        \"cover_image\": \"placeholder\",\n        \"allows_images\": false,\n        \"allows_youtube_videos\": true,\n        \"allows_documents\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"668797bced11f8fcce78aebf\",\n        \"name\": \"Pais\",\n        \"cover_image\": \"placeholder\",\n        \"allows_images\": true,\n        \"allows_youtube_videos\": false,\n        \"allows_documents\": false,\n        \"__v\": 0\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Category",
@@ -125,9 +379,73 @@
 					"path": [
 						"categories"
 					]
-				}
+				},
+				"description": "Permite crear una nueva categoria (o tematica)"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear categoria ejemplo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Comida\",\n    \"cover_image\": \"placeholder\",\n    \"allows_images\": false,\n    \"allows_youtube_videos\": true,\n    \"allows_documents\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2b-dGnJzt6gv1nJjX6DJ9RztDWptng\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 05:03:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+				}
+			]
 		},
 		{
 			"name": "Posts",
@@ -135,7 +453,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/posts",
+					"raw": "http://localhost:3000/posts?search=2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -143,10 +461,77 @@
 					"port": "3000",
 					"path": [
 						"posts"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "2"
+						}
 					]
-				}
+				},
+				"description": "Permite listar todos los posts o realizar una busqueda si se le agrega el parametro \"**search\"**"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Obtener posts ejemplo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts?search=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "284"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"11c-dnIBioChrdNVTqxaY4Fc5E6v+Eg\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 02:28:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6685c97982b16078ed8e524c\",\n        \"title\": \"Test Post 2\",\n        \"content\": \"Que tal banda!\",\n        \"content_type\": \"TEXT\",\n        \"credits\": \"test\",\n        \"user\": \"66852f44aa1727bcc1c11045\",\n        \"category\": \"668587ab1cdfbff7e14fd839\",\n        \"created_at\": \"2024-07-03T21:58:17.817Z\",\n        \"updated_at\": \"2024-07-03T21:58:17.817Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Post",
@@ -172,9 +557,73 @@
 					"path": [
 						"posts"
 					]
-				}
+				},
+				"description": "Permite crear un nuevo post"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear Post ejemplo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Test Post 3\",\n    \"category\": \"668587ab1cdfbff7e14fd839\",\n    \"user\": \"66852f44aa1727bcc1c11045\",\n    \"content\": \"Que tal weyes!\",\n    \"content_type\": \"IMAGE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "283"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"11b-7UROoa+epQgom8jQIJjixVy/79Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 01:49:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"Test Post 3\",\n    \"content\": \"Hello world!\",\n    \"content_type\": \"TEXT\",\n    \"credits\": \"test\",\n    \"user\": \"66852f44aa1727bcc1c11045\",\n    \"category\": \"668587ab1cdfbff7e14fd839\",\n    \"_id\": \"6685ff979d8f4dd9e5e07b4a\",\n    \"created_at\": \"2024-07-04T01:49:11.610Z\",\n    \"updated_at\": \"2024-07-04T01:49:11.610Z\",\n    \"__v\": 0\n}"
+				}
+			]
 		},
 		{
 			"name": "Content-types",
@@ -192,9 +641,65 @@
 						"posts",
 						"content-types"
 					]
-				}
+				},
+				"description": "Obtiene la lista de todos los tipos de contenidos disponibles."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Obtener Content-types ejemplo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts/content-types",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"content-types"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2b-6dZ8UceAdochsVkicf6U+9u6xl8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jul 2024 22:13:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"DOCUMENT\",\n    \"YOUTUBE_VIDEO\",\n    \"TEXT\",\n    \"IMAGE\"\n]"
+				}
+			]
 		},
 		{
 			"name": "Upload Category File",
@@ -223,9 +728,80 @@
 						"668587ab1cdfbff7e14fd834",
 						"file"
 					]
-				}
+				},
+				"description": "Permite cargar un imagen a una categoria en concreto, esto sirve para agregarle la imagen de portada."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Cargar portada a una categoria ejemplo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/carloschavezlaguna/Desktop/Screenshot 2024-07-02 at 22.33.03.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/categories/668587ab1cdfbff7e14fd839/file",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categories",
+								"668587ab1cdfbff7e14fd839",
+								"file"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "180"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b4-mB+ziFaPH2K3dxa7gS6sSOSH2BU\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 20:42:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"668587ab1cdfbff7e14fd839\",\n    \"name\": \"Matematicas\",\n    \"cover_image\": \"public/uploads/1720125743086.png\",\n    \"allows_images\": false,\n    \"allows_youtube_videos\": false,\n    \"allows_documents\": true\n}"
+				}
+			]
 		},
 		{
 			"name": "Upload Post File",
@@ -254,7 +830,8 @@
 						"668587ab1cdfbff7e14fd834",
 						"file"
 					]
-				}
+				},
+				"description": "Permite cargar un archivo a un post en concreto."
 			},
 			"response": []
 		},
@@ -275,9 +852,66 @@
 						"668587ab1cdfbff7e14fd839",
 						"posts"
 					]
-				}
+				},
+				"description": "Permite obtener posts relacionados a una categoria especifica"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Obtener posts de Categoria especifica ejemplo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/categories/668587ab1cdfbff7e14fd839/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categories",
+								"668587ab1cdfbff7e14fd839",
+								"posts"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "860"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"35c-wNAfFj6UDmFlmV4vzfC/dz159JM\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 02:02:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6685aea91cdfbff7e14fd83b\",\n        \"title\": \"Test Post\",\n        \"category\": \"668587ab1cdfbff7e14fd839\",\n        \"user\": \"66850e5e1cdfbff7e14fd822\",\n        \"content\": \"public/uploads/1720057478368.png\",\n        \"content_type\": \"TEXT\",\n        \"created_at\": \"2000-01-01T05:00:00.000Z\",\n        \"updated_at\": \"2024-07-04T01:44:38.379Z\",\n        \"credits\": \"Admin\"\n    },\n    {\n        \"_id\": \"6685c97982b16078ed8e524c\",\n        \"title\": \"Test Post 2\",\n        \"content\": \"Que tal banda!\",\n        \"content_type\": \"TEXT\",\n        \"credits\": \"test\",\n        \"user\": \"66852f44aa1727bcc1c11045\",\n        \"category\": \"668587ab1cdfbff7e14fd839\",\n        \"created_at\": \"2024-07-03T21:58:17.817Z\",\n        \"updated_at\": \"2024-07-03T21:58:17.817Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6685ff979d8f4dd9e5e07b4a\",\n        \"title\": \"Test Post 3\",\n        \"content\": \"Que tal weyes!\",\n        \"content_type\": \"IMAGE\",\n        \"credits\": \"test\",\n        \"user\": \"66852f44aa1727bcc1c11045\",\n        \"category\": \"668587ab1cdfbff7e14fd839\",\n        \"created_at\": \"2024-07-04T01:49:11.610Z\",\n        \"updated_at\": \"2024-07-04T01:49:11.610Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Category",
@@ -295,9 +929,69 @@
 						"categories",
 						"668587ab1cdfbff7e14fd839"
 					]
-				}
+				},
+				"description": "Permite obtener una categoria especifica"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Obtener Categoria especifica ejemplo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/categories/668587ab1cdfbff7e14fd839",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categories",
+								"668587ab1cdfbff7e14fd839"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "180"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b4-DmT6qz8d6QsHngdfhXZpWks3OJc\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 20:09:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"668587ab1cdfbff7e14fd839\",\n    \"name\": \"Matematicas\",\n    \"cover_image\": \"public/uploads/1720053275364.png\",\n    \"allows_images\": false,\n    \"allows_youtube_videos\": false,\n    \"allows_documents\": true\n}"
+				}
+			]
 		},
 		{
 			"name": "Roles",
@@ -315,9 +1009,69 @@
 						"users",
 						"roles"
 					]
-				}
+				},
+				"description": "Permite obtener un listado de todos los roles de usuario disponibles"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Obtener roles ejemplo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"roles"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "205"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cd-jWBx+oHQDQnScpW0TlLJw1Q61ps\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 21:43:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"66850f901cdfbff7e14fd824\",\n        \"name\": \"ADMIN\",\n        \"label\": \"Admin\"\n    },\n    {\n        \"_id\": \"66850fbd1cdfbff7e14fd825\",\n        \"name\": \"CREATOR\",\n        \"label\": \"Creador\"\n    },\n    {\n        \"_id\": \"66850fe81cdfbff7e14fd826\",\n        \"name\": \"READER\",\n        \"label\": \"Lector\"\n    }\n]"
+				}
+			]
 		}
 	]
 }
