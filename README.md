@@ -15,3 +15,5 @@ Permisos:
 ● Admin = CRUD
 ● Lector = R
 ● Creador = CRU
+
+El api documentation del proyecto puede ser visitado a través de la siguiente URL: [Api Docs](https://documenter.getpostman.com/view/30110498/2sA3dyiqv7)
