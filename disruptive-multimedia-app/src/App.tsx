@@ -60,8 +60,11 @@ const App: React.FC = () => {
         <IonReactRouter>
           <IonRouterOutlet id="secondary">
               
-              <Route path="*" exact={true}>
+              {/*<Route path="*" exact={true}>
                 <LoginPage />
+              </Route>*/}
+              <Route path="/" exact={true}>
+                <Redirect to="/login" />
               </Route>
               <Route path="/login" exact={true}>
                 <LoginPage />
