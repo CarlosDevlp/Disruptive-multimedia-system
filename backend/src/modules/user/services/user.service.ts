@@ -61,6 +61,8 @@ export class UserService {
 
             const payload = { username: user.username, role: role.name };
             return {
+                user: user,
+                role_name: role.name,
                 access_token: await this.jwtService.signAsync(payload),
             };
         }

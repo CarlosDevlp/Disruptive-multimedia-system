@@ -19,6 +19,10 @@ export class CategoryService {
         return this.categoryModel.find();
     }
 
+    getCategory(categoryId:string):Promise<Category>{
+        return this.categoryModel.findById(new Types.ObjectId(categoryId));
+    }
+
     findPostsByCategoryId(categoryId: string):Promise<Post[]>{
         return this.postModel.find({ category: new Types.ObjectId(categoryId)});
     }

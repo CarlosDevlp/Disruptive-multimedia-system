@@ -11,10 +11,19 @@ import { AdminAuthGuard } from 'src/guards/admin-auth/admin-auth.guard';
 export class CategoryController {
     constructor(private categoryService: CategoryService){}
 
-    @UseGuards(AdminAuthGuard)
     @Get()
     getCategories(@Query('search') search?: string){
         return this.categoryService.getCategories(search);
+    }
+
+    @Get(':id')
+    getCategory(@Param('id') id: string){
+        return this.categoryService.getCategory(id);
+    }
+
+    @Get(':id/posts')
+    getPostsByCategoryId(@Param('id') id: string){
+        return this.categoryService.findPostsByCategoryId(id);
     }
 
     @UseGuards(AdminAuthGuard)
@@ -27,11 +36,7 @@ export class CategoryController {
         }
     }
 
-    @Get(':id/posts')
-    getPostsByCategoryId(@Param('id') id: string){
-        return this.categoryService.findPostsByCategoryId(id);
-    }
-
+    @UseGuards(AdminAuthGuard)
     @Post(':id/file')
     @UseInterceptors(FileInterceptor('file',
         {
